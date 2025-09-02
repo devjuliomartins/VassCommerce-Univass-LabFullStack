@@ -2,7 +2,6 @@ package br.com.juliomartins.VassCommerce.service;
 
 import br.com.juliomartins.VassCommerce.model.Categoria;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,13 @@ public class CategoriaService {
         categorias.add(new Categoria(3, "livros.png", "Livros", "Diversos tipos de livros e revistas"));
     }
 
-    public List<Categoria> ListarTodas() {
+    public List<Categoria> listarTodas() {
         return categorias;
+    }
+
+    public List<Categoria> buscarPorNome(String nome) {
+        return categorias.stream()
+                .filter(c -> c.getNome().toLowerCase().contains(nome.toLowerCase()))
+                .toList();
     }
 }

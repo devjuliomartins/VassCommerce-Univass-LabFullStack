@@ -38,4 +38,8 @@ public class ProdutoService {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Este Produto não existe! Id:" + id));
     }
+
+    public List<Produto> listarTodos() {
+        return produtos;
+    }
 }

@@ -25,4 +25,10 @@ public class ProdutoController {
     public Produto buscarProdutoId(@PathVariable int id) {
         return produtoService.buscarProdutoId(id);
     }
+
+//  GET /produto → lista todos os Produtos
+    @GetMapping("/produto")
+    public List<Produto> listarTodosProdutos() {
+        return produtoService.listarTodos();
+    }
 }

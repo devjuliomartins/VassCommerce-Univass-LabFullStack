@@ -20,7 +20,7 @@ public class ProdutoService {
                 "Notebook",
                 "Notebook gamer 16GB RAM",
                 "http://exemplo.com/notebook.jpg",
-                new Date(), new Date(), new BigDecimal("4500.00")
+                new Date(), new Date(), new BigDecimal("4500.00"), 1
         ));
 
         produtos.add(new Produto(
@@ -28,7 +28,7 @@ public class ProdutoService {
                 "Mouse Gamer",
                 "Mouse com 7200 DPI",
                 "http://exemplo.com/mouse.jpg",
-                new Date(), new Date(), new BigDecimal("4500.00")
+                new Date(), new Date(), new BigDecimal("4500.00"), 1
         ));
     }
 
@@ -41,5 +41,11 @@ public class ProdutoService {
 
     public List<Produto> listarTodos() {
         return produtos;
+    }
+
+    public List<Produto> listaPorCategoria(int idCategoria) {
+        return produtos.stream()
+                .filter(produto -> produto.getIdCategoria() == idCategoria)
+                .toList();
     }
 }

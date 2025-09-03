@@ -31,4 +31,10 @@ public class ProdutoController {
     public List<Produto> listarTodosProdutos() {
         return produtoService.listarTodos();
     }
+
+//  GET /categoria/{idCategoria}/produto → listagem de todos os produtos da categoria
+    @GetMapping("/categoria/{idCategoria}/produto")
+    public List<Produto> listarProdutosCategoria(@PathVariable int idCategoria) {
+        return produtoService.listaPorCategoria(idCategoria);
+    }
 }

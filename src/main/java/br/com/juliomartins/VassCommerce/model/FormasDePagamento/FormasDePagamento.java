@@ -3,20 +3,20 @@ package br.com.juliomartins.VassCommerce.model.FormasDePagamento;
 import java.util.Date;
 
 public class FormasDePagamento {
-    private int id;
+    private long id;
     private Date dataCriacao;
     private boolean excluido;
 
-    public FormasDePagamento (int id, Date dataCriacao, boolean excluido) {
+    public FormasDePagamento (long id, Date dataCriacao, boolean excluido) {
         this.id = id;
         this.dataCriacao = dataCriacao;
         this.excluido = excluido;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

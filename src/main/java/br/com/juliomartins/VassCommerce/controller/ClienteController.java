@@ -20,13 +20,13 @@ public class ClienteController {
 
 //  GET /cliente/{id} → Visualizar dados do Cliente
     @GetMapping("/cliente/{id}")
-    public Cliente VisualizarDadosCliente(@PathVariable int id) {
+    public Cliente VisualizarDadosCliente(@PathVariable long id) {
         return clienteService.dadosCliente(id);
     }
 
 //  GET /cliente/{id}/forma-de-pagamento → Lista todas as formas de pagamento do Cliente
     @GetMapping("/cliente/{id}/forma-de-pagamento")
-    public List<FormasDePagamento> VisualizarFormasDePagamentos(@PathVariable int id) {
+    public List<FormasDePagamento> VisualizarFormasDePagamentos(@PathVariable long id) {
         return clienteService.formasDePagamentosCliente(id);
     }
 

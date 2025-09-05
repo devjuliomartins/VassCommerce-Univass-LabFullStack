@@ -4,17 +4,17 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Produto {
-    private int id;
+    private long id;
     private String nome;
     private String descricao;
     private String fotoUrl;
     private Date dataCadastro;
     private Date dataUltimaAtualizacao;
     private BigDecimal valorUnitario;
-    private int idCategoria;
+    private long idCategoria;
 
-    public Produto(int id, String nome, String descricao, String fotoUrl,
-                   Date dataCadastro, Date dataUltimaAtualizacao, BigDecimal valorUnitario, int idCategoria) {
+    public Produto(long id, String nome, String descricao, String fotoUrl,
+                   Date dataCadastro, Date dataUltimaAtualizacao, BigDecimal valorUnitario, long idCategoria) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -25,10 +25,10 @@ public class Produto {
         this.idCategoria = idCategoria;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -74,7 +74,7 @@ public class Produto {
         this.valorUnitario = valorUnitario;
     }
 
-    public int getIdCategoria() {
+    public long getIdCategoria() {
         return idCategoria;
     }
 }

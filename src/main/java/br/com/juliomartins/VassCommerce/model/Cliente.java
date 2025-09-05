@@ -12,7 +12,8 @@ public class Cliente extends Usuario {
     private String cpf;
     private List<FormasDePagamento> formasDePagamento;
 
-    public Cliente(int id, String nomeCompleto, String email, String senha, Date dataCadastro, Date dataUltimaAtualizacao, String fotoUrl, LocalDate dataNascimento, String cpf, List<FormasDePagamento> formasDePagamentos) {
+    public Cliente(long id, String nomeCompleto, String email, String senha, Date dataCadastro,
+                   Date dataUltimaAtualizacao, String fotoUrl, LocalDate dataNascimento, String cpf, List<FormasDePagamento> formasDePagamentos) {
         super(id, nomeCompleto, email, senha, dataCadastro, dataUltimaAtualizacao, fotoUrl);
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;

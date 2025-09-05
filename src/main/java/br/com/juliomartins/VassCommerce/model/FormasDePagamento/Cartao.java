@@ -5,7 +5,7 @@ import java.util.Date;
 public class Cartao extends FormasDePagamento {
     private TipoCartao tipoCartao;
 
-    public Cartao(int id, Date dataCricao, boolean exluido, TipoCartao tipoCartao) {
+    public Cartao(long id, Date dataCricao, boolean exluido, TipoCartao tipoCartao) {
         super(id, dataCricao, exluido);
         this.tipoCartao = tipoCartao;
     }

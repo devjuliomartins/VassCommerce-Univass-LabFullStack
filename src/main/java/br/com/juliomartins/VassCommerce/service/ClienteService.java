@@ -37,7 +37,7 @@ public class ClienteService {
     }
 
     // Visualizar dados do Cliente pelo ID
-    public Cliente dadosCliente(int id) {
+    public Cliente dadosCliente(long id) {
         return cliente.stream()
                 .filter(c -> c.getId() == id)
                 .findFirst()
@@ -45,7 +45,7 @@ public class ClienteService {
     }
 
     // Listar todas as formas de pagamento pelo ID do Cliente
-    public List<FormasDePagamento> formasDePagamentosCliente(@RequestParam int id) {
+    public List<FormasDePagamento> formasDePagamentosCliente(@RequestParam long id) {
         return cliente.stream()
                 .filter(c -> c.getId() == id)
                 .map(Cliente::getFormasDePagamento)

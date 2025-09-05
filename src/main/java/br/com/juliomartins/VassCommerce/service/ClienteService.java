@@ -1,16 +1,16 @@
 package br.com.juliomartins.VassCommerce.service;
 
 import br.com.juliomartins.VassCommerce.model.Cliente;
+import br.com.juliomartins.VassCommerce.model.Endereco.Cidade;
+import br.com.juliomartins.VassCommerce.model.Endereco.Endereco;
+import br.com.juliomartins.VassCommerce.model.Endereco.Estado;
 import br.com.juliomartins.VassCommerce.model.FormasDePagamento.Cartao;
 import br.com.juliomartins.VassCommerce.model.FormasDePagamento.FormasDePagamento;
 import br.com.juliomartins.VassCommerce.model.FormasDePagamento.TipoCartao;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ClienteService {
@@ -23,6 +23,12 @@ public class ClienteService {
         formasDePagamentos.add(new Cartao(123, new Date(), false, TipoCartao.CREDITO));
         formasDePagamentos.add(new Cartao(122, new Date(), false, TipoCartao.DEBITO));
 
+        Estado rj = new Estado(1, "RJ", "Rio de Janeiro");
+        Cidade rioDeJaneiro = new Cidade(1, "Valença", rj);
+
+        Endereco endereco = new Endereco(1, "Rua A", 123, "01000-000", "", "11999999999",
+                "Centro", new Date(), new Date(), rioDeJaneiro);
+
         cliente.add(new Cliente(
                 1,
                 "Julio Fernando",
@@ -32,7 +38,8 @@ public class ClienteService {
                 "",
                 dataNascimento,
                 "1234567",
-                formasDePagamentos
+                formasDePagamentos,
+                endereco
         ));
     }
 
@@ -51,5 +58,14 @@ public class ClienteService {
                 .map(Cliente::getFormasDePagamento)
                 .findFirst()
                 .orElse(Collections.emptyList());
+    }
+
+    // Busca dados de Endereço do Cliente
+    public Endereco listarEnderecoCliente(long id) {
+        return cliente.stream()
+                .filter(c -> c.getId() == id)
+                .map(Cliente::getEndereco)
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Cliente não encontrado"));
     }
 }

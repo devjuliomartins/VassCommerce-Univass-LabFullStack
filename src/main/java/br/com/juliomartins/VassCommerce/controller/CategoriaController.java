@@ -21,7 +21,7 @@ public class CategoriaController {
 
 //  GET /categoria - lista todas Categorais
 //    or
-//  GET /categoria?nome= - lista produtos da Categoria
+//  GET /categoria?nome= - filtragem de lista por nome
     @GetMapping("/categoria")
     public List<Categoria> listarCategorias(@RequestParam(name = "nome",required = false) String nome){
         if (nome != null && !nome.isBlank()) {

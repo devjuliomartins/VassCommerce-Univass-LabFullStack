@@ -1,12 +1,12 @@
 package br.com.juliomartins.VassCommerce.service;
 
 import br.com.juliomartins.VassCommerce.model.Cliente;
-import br.com.juliomartins.VassCommerce.model.Endereco.Cidade;
-import br.com.juliomartins.VassCommerce.model.Endereco.Endereco;
-import br.com.juliomartins.VassCommerce.model.Endereco.Estado;
-import br.com.juliomartins.VassCommerce.model.FormasDePagamento.Cartao;
-import br.com.juliomartins.VassCommerce.model.FormasDePagamento.FormasDePagamento;
-import br.com.juliomartins.VassCommerce.model.FormasDePagamento.TipoCartao;
+import br.com.juliomartins.VassCommerce.model.endereco.Cidade;
+import br.com.juliomartins.VassCommerce.model.endereco.Endereco;
+import br.com.juliomartins.VassCommerce.model.endereco.Estado;
+import br.com.juliomartins.VassCommerce.model.formasdepagamento.Cartao;
+import br.com.juliomartins.VassCommerce.model.formasdepagamento.FormasDePagamento;
+import br.com.juliomartins.VassCommerce.model.formasdepagamento.TipoCartao;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;

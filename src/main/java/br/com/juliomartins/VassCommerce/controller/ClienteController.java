@@ -1,8 +1,8 @@
 package br.com.juliomartins.VassCommerce.controller;
 
 import br.com.juliomartins.VassCommerce.model.Cliente;
-import br.com.juliomartins.VassCommerce.model.Endereco.Endereco;
-import br.com.juliomartins.VassCommerce.model.FormasDePagamento.FormasDePagamento;
+import br.com.juliomartins.VassCommerce.model.endereco.Endereco;
+import br.com.juliomartins.VassCommerce.model.formasdepagamento.FormasDePagamento;
 import br.com.juliomartins.VassCommerce.service.ClienteService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

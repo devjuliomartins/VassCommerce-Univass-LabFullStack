@@ -1,7 +1,7 @@
 package br.com.juliomartins.VassCommerce.model;
 
-import br.com.juliomartins.VassCommerce.model.Endereco.Endereco;
-import br.com.juliomartins.VassCommerce.model.FormasDePagamento.FormasDePagamento;
+import br.com.juliomartins.VassCommerce.model.endereco.Endereco;
+import br.com.juliomartins.VassCommerce.model.formasdepagamento.FormasDePagamento;
 
 import java.time.LocalDate;
 import java.util.Date;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categoria")
+@RequestMapping
 public class CategoriaController {
 
     private final CategoriaService categoriaService;
@@ -22,7 +22,7 @@ public class CategoriaController {
 //  GET /categoria - lista todas Categorais
 //    or
 //  GET /categoria?nome= - lista produtos da Categoria
-    @GetMapping
+    @GetMapping("/categoria")
     public List<Categoria> listarCategorias(@RequestParam(name = "nome",required = false) String nome){
         if (nome != null && !nome.isBlank()) {
             return categoriaService.buscarPorNome(nome);

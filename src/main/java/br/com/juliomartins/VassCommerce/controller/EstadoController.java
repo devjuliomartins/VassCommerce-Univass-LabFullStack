@@ -20,7 +20,7 @@ public class EstadoController {
     }
 
 
-//
+//  Get /estado → Listar todos os Estados
     @GetMapping("/estado")
     public List<Estado> listarEstados() {
         return estadoService.todosEstados();

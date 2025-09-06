@@ -5,6 +5,7 @@ import br.com.juliomartins.VassCommerce.model.endereco.Cidade;
 import br.com.juliomartins.VassCommerce.model.endereco.Endereco;
 import br.com.juliomartins.VassCommerce.model.endereco.Estado;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,4 +29,12 @@ public class EstadoService {
                 .collect(Collectors.toList());
     }
 
+    public List<Cidade> todasCidadesEstado(@PathVariable long idEstado) {
+        return cliente.stream()
+                .map(Cliente::getEndereco)
+                .map(Endereco::getCidade)
+                .filter(cidade -> cidade.getEstado().getId() == idEstado)
+                .distinct()
+                .collect(Collectors.toList());
+    }
 }

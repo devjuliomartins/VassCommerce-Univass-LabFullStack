@@ -18,7 +18,7 @@ public class PedidoService {
         this.cliente = clienteService.getCliente();
     }
 
-
+    // Listar Pedidos de um Cliente
     public Pedido listarPedidosCliente(@RequestParam long id) {
         return cliente.stream()
                 .filter(c -> c.getId() == id)

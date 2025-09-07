@@ -8,6 +8,7 @@ import java.util.List;
 
 @Service
 public class CategoriaService {
+
     private List<Categoria> categorias;
 
     public CategoriaService() {
@@ -17,10 +18,12 @@ public class CategoriaService {
         categorias.add(new Categoria(3, "livros.png", "Livros", "Diversos tipos de livros e revistas"));
     }
 
+    // Listar todas Categorias
     public List<Categoria> listarTodas() {
         return categorias;
     }
 
+    // Buscar Categoria por nome
     public List<Categoria> buscarPorNome(String nome) {
         return categorias.stream()
                 .filter(c -> c.getNome().toLowerCase().contains(nome.toLowerCase()))

@@ -17,7 +17,8 @@ public class Cliente extends Usuario {
     private Pedido pedido;
 
     public Cliente(long id, String nomeCompleto, String email, String senha, Date dataCadastro,
-                   Date dataUltimaAtualizacao, String fotoUrl, LocalDate dataNascimento, String cpf, List<FormasDePagamento> formasDePagamentos, Endereco endereco, Pedido pedido) {
+                   Date dataUltimaAtualizacao, String fotoUrl, LocalDate dataNascimento, String cpf,
+                   List<FormasDePagamento> formasDePagamentos, Endereco endereco, Pedido pedido) {
         super(id, nomeCompleto, email, senha, dataCadastro, dataUltimaAtualizacao, fotoUrl);
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
@@ -29,7 +30,6 @@ public class Cliente extends Usuario {
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
-
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
@@ -37,7 +37,6 @@ public class Cliente extends Usuario {
     public String getCpf() {
         return cpf;
     }
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }

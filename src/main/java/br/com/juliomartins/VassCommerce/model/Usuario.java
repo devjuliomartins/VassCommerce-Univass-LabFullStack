@@ -33,7 +33,6 @@ public class Usuario {
     public String getNomeCompleto() {
         return nomeCompleto;
     }
-
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
     }
@@ -41,7 +40,6 @@ public class Usuario {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -49,7 +47,6 @@ public class Usuario {
     public String getSenha() {
         return senha;
     }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
@@ -57,7 +54,6 @@ public class Usuario {
     public Date getDataUltimaAtualizacao() {
         return dataUltimaAtualizacao;
     }
-
     public void setDataUltimaAtualizacao(Date dataUltimaAtualizacao) {
         this.dataUltimaAtualizacao = dataUltimaAtualizacao;
     }
@@ -65,7 +61,6 @@ public class Usuario {
     public Date getDataCadastro() {
         return dataCadastro;
     }
-
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
@@ -73,7 +68,6 @@ public class Usuario {
     public String getFotoUrl() {
         return fotoUrl;
     }
-
     public void setFotoUrl(String fotoUrl) {
         this.fotoUrl = fotoUrl;
     }

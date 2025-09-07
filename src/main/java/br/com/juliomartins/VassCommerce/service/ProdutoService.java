@@ -32,6 +32,7 @@ public class ProdutoService {
         ));
     }
 
+    // Buscar Produto pelo ID
     public Produto buscarProdutoId(long id) {
         return produtos.stream()
                 .filter(p -> p.getId() == id)
@@ -39,10 +40,12 @@ public class ProdutoService {
                 .orElseThrow(() -> new RuntimeException("Este Produto não existe! Id:" + id));
     }
 
+    // Listar todos Produtos
     public List<Produto> listarTodos() {
         return produtos;
     }
 
+    // Listar Produtos Por Categoria
     public List<Produto> listaPorCategoria(long idCategoria) {
         return produtos.stream()
                 .filter(produto -> produto.getIdCategoria() == idCategoria)

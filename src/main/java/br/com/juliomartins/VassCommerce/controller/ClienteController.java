@@ -19,6 +19,7 @@ public class ClienteController {
         this.clienteService = clienteService;
     }
 
+
 //  GET /cliente/{id} → Visualizar dados do Cliente
     @GetMapping("/cliente/{id}")
     public Cliente VisualizarDadosCliente(@PathVariable long id) {
@@ -36,4 +37,5 @@ public class ClienteController {
     public Endereco VisualizarEnderecosCliente(@PathVariable long id) {
         return clienteService.listarEnderecoCliente(id);
     }
+
 }

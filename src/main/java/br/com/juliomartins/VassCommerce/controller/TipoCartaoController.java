@@ -24,4 +24,5 @@ public class TipoCartaoController {
     public List<TipoCartao> listarTipoCartao() {
         return tipoCartaoService.todosTipoCartao();
     }
+
 }

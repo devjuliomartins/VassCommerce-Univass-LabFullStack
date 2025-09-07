@@ -19,9 +19,9 @@ public class CategoriaController {
         this.categoriaService = categoriaService;
     }
 
-//  GET /categoria - lista todas Categorais
-//    or
-//  GET /categoria?nome= - filtragem de lista por nome
+
+//  GET /categoria - Lista todas Categorais
+//  GET /categoria?nome= - Filtragem de lista por nome
     @GetMapping("/categoria")
     public List<Categoria> listarCategorias(@RequestParam(name = "nome",required = false) String nome){
         if (nome != null && !nome.isBlank()) {
@@ -29,4 +29,5 @@ public class CategoriaController {
         }
         return categoriaService.listarTodas();
     }
+
 }

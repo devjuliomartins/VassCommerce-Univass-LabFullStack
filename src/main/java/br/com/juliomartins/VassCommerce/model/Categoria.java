@@ -1,22 +1,31 @@
 package br.com.juliomartins.VassCommerce.model;
 
+import jakarta.persistence.*;
+
+@Entity(name = "categoria")
+@Table(name = "categoria")
 public class Categoria {
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String imagemSimboloUrl;
     private String nome;
     private String descricao;
 
-    public Categoria(long id, String imagemSimboloUrl, String nome, String descricao) {
+    public Categoria() {}
+
+    public Categoria(Integer id, String imagemSimboloUrl, String nome, String descricao) {
         this.id = id;
         this.imagemSimboloUrl = imagemSimboloUrl;
         this.nome = nome;
         this.descricao = descricao;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

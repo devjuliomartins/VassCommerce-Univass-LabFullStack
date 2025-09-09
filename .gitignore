@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Credenciais locais
+application.properties
+
+# Docker
+docker-compose.override.yml
+
+.env

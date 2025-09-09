@@ -3,6 +3,11 @@
 [![Java](https://img.shields.io/badge/Java-21-red?logo=openjdk)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?logo=springboot)](https://spring.io/projects/spring-boot)
 [![Maven](https://img.shields.io/badge/Maven-4.0.0-C71A36?logo=apachemaven)](https://maven.apache.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)](https://www.postgresql.org/)
+[![PgAdmin](https://img.shields.io/badge/PgAdmin-6.23-orange?logo=pgadmin4)](https://www.pgadmin.org/)
+[![Postman](https://img.shields.io/badge/Postman-10.16.1-orange?logo=postman)](https://www.postman.com/)
+[![Docker](https://img.shields.io/badge/Docker-24.0-blue?logo=docker)](https://www.docker.com/)
+
 
 O **VassCommerce** é um serviço web que simula um pequeno sistema de e-commerce.  
 Ele foi desenvolvido como **exercício de estudo em Java**, baseado em um **diagrama de classes fornecido**.  

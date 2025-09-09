@@ -78,6 +78,10 @@ O diagrama representa os relacionamentos entre **clientes, usuários, pedidos, p
 - **Spring Boot 3.x**
 - **Maven**
 - **JUnit** (testes)
+- **PostgreSQL** (banco de dados)
+- **PgAdmin** (opcional, para visualização e gerenciamento das tabelas)
+- **Postman** (para testar endpoints)
+- **Docker** (container)
 
 ---
 

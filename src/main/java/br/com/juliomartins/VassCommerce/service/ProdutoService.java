@@ -1,5 +1,6 @@
 package br.com.juliomartins.VassCommerce.service;
 
+import br.com.juliomartins.VassCommerce.model.Categoria;
 import br.com.juliomartins.VassCommerce.model.Produto;
 import org.springframework.stereotype.Service;
 
@@ -40,9 +41,13 @@ public class ProdutoService {
                 .orElseThrow(() -> new RuntimeException("Este Produto não existe! Id:" + id));
     }
 
-    // Listar todos Produtos
-    public List<Produto> listarTodos() {
-        return produtos;
+    // Listar todos Produtos por nome e faixa de valor
+    public List<Produto> listarPorNomeValor(String nome, Float valorMinimo, Float valorMaximo) {
+        return produtos.stream()
+                .filter(p -> nome == null || p.getNome().toLowerCase().contains(nome.toLowerCase()))
+                .filter(p -> valorMinimo == null || p.getValorUnitario() >= valorMinimo)
+                .filter(p -> valorMaximo == null || p.getValorUnitario() <= valorMaximo)
+                .toList();
     }
 
     // Listar todos Produtos da Categoria

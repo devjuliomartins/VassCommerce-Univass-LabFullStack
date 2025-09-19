@@ -34,20 +34,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-        <dependency>                    <!-- Starter Data JPA (para trabalhar com bancos relacionais) -->
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>                    <!-- Driver PostgreSQL -->
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>                    <!-- Flyway pra sql -->
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>9.5.1</version>
-        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

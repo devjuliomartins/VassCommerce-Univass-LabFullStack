@@ -43,4 +43,10 @@ public class ProdutoController {
     public Produto atualizarProduto(@PathVariable long id, @RequestBody Produto produto) {
         return produtoService.update(id, produto);
     }
+
+    // DELETE /produto/{idProduto} →  excluir cadastro do Produto
+    @DeleteMapping ("/{id}")
+    public void deletarProduto(@PathVariable long id) {
+        produtoService.delete(id);
+    }
 }

@@ -89,4 +89,12 @@ public class ProdutoService {
         }
         throw new RuntimeException("Não foi possível atualizar: produto com id " + id);
     }
+
+    // excluir cadastro do Produto
+    public void delete(long id) {
+        boolean removido = produtos.removeIf(p -> p.getId() == id);
+        if (!removido) {
+            throw new RuntimeException("Produto não encontrado com id: " + id);
+        }
+    }
 }

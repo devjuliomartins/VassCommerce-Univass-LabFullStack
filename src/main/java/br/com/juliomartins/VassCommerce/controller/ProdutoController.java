@@ -31,4 +31,10 @@ public class ProdutoController {
     public Produto criarProduto(@RequestBody Produto produto) {
         return produtoService.create(produto);
     }
+
+    // GET /produto/{idProduto} → buscar Produto pro ID
+    @GetMapping("/{id}")
+    public Produto buscarProdutoId(@PathVariable long id) {
+        return produtoService.buscarProdutoId(id);
+    }
 }

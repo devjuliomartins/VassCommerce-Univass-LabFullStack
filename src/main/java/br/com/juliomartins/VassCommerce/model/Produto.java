@@ -1,41 +1,22 @@
 package br.com.juliomartins.VassCommerce.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity(name = "produto")
-@Table(name = "produto")
 public class Produto {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
     private String descricao;
     private String fotoUrl;
-
-    @CreationTimestamp
     private Date dataCadastro;
-
-    @UpdateTimestamp
     private Date dataUltimaAtualizacao;
-
-    @Column(name = "valor_unitario")
-    private BigDecimal valorUnitario;
-
-    @ManyToOne
-    @JoinColumn(name = "id_categoria", nullable = false)
-    private Categoria categoria;
+    private Float valorUnitario;
+    private Long idCategoria;
 
     public Produto() {}
 
     public Produto(long id, String nome, String descricao, String fotoUrl,
-                   Date dataCadastro, Date dataUltimaAtualizacao, BigDecimal valorUnitario, Categoria categoria) {
+                   Date dataCadastro, Date dataUltimaAtualizacao, Float valorUnitario, Long idCategoria) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -43,7 +24,7 @@ public class Produto {
         this.dataCadastro = dataCadastro;
         this.dataUltimaAtualizacao = dataUltimaAtualizacao;
         this.valorUnitario = valorUnitario;
-        this.categoria = categoria;
+        this.idCategoria = idCategoria;
     }
 
     public long getId() {
@@ -88,17 +69,17 @@ public class Produto {
         this.dataUltimaAtualizacao = dataUltimaAtualizacao;
     }
 
-    public BigDecimal getValorUnitario() {
+    public Float getValorUnitario() {
         return valorUnitario;
     }
-    public void setValorUnitario(BigDecimal valorUnitario) {
+    public void setValorUnitario(Float valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 
-    public Categoria getIdCategoria() {
-        return categoria;
+    public Long getIdCategoria() {
+        return idCategoria;
     }
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setIdCategoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
     }
 }

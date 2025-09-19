@@ -1,18 +1,19 @@
 package br.com.juliomartins.VassCommerce.service;
 
-import br.com.juliomartins.VassCommerce.model.Categoria;
 import br.com.juliomartins.VassCommerce.model.Produto;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class ProdutoService {
 
     private final List<Produto> produtos;
+    private final AtomicLong sequence = new AtomicLong(1);
+
 
     public ProdutoService() {
         produtos = new ArrayList<>();
@@ -58,5 +59,16 @@ public class ProdutoService {
                 .filter(p -> valorMinimo == null || p.getValorUnitario() >= valorMinimo)
                 .filter(p -> valorMaximo == null || p.getValorUnitario() <= valorMaximo)
                 .toList();
+    }
+
+    // Criar novo Produto
+    public Produto create(Produto produto) {
+        produto.setId(sequence.getAndIncrement());
+
+        produto.setDataCadastro(new Date());
+        produto.setDataUltimaAtualizacao(new Date());
+
+        produtos.add(produto);
+        return produto;
     }
 }

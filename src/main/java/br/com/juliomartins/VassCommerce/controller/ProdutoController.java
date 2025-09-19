@@ -25,4 +25,10 @@ public class ProdutoController {
     ) {
         return produtoService.listarPorNomeValor(nome, valorMinimo, valorMaximo);
     }
+
+    // POST /produto → criar novo produto
+    @PostMapping
+    public Produto criarProduto(@RequestBody Produto produto) {
+        return produtoService.create(produto);
+    }
 }

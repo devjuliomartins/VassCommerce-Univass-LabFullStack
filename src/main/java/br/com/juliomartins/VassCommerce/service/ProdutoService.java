@@ -71,4 +71,22 @@ public class ProdutoService {
         produtos.add(produto);
         return produto;
     }
+
+    // Atualizar dados do Produto
+    public Produto update(Long id, Produto produtoAtualizado) {
+        for (Produto p : produtos) {
+            if (p.getId() == id) {
+                // Atualiza os campos permitidos
+                p.setNome(produtoAtualizado.getNome());
+                p.setDescricao(produtoAtualizado.getDescricao());
+                p.setFotoUrl(produtoAtualizado.getFotoUrl());
+                p.setValorUnitario(produtoAtualizado.getValorUnitario());
+                p.setIdCategoria(produtoAtualizado.getIdCategoria());
+                p.setDataUltimaAtualizacao(new Date());
+
+                return p;
+            }
+        }
+        throw new RuntimeException("Não foi possível atualizar: produto com id " + id);
+    }
 }

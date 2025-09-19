@@ -38,6 +38,7 @@ public class ProdutoController {
         return produtoService.buscarProdutoId(id);
     }
 
+    // PUT /produto/{idProduto} → atualizar dados do Produto
     @PutMapping("/{id}")
     public Produto atualizarProduto(@PathVariable long id, @RequestBody Produto produto) {
         return produtoService.update(id, produto);

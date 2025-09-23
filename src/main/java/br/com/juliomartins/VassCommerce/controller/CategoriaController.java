@@ -21,7 +21,7 @@ public class CategoriaController {
     }
 
     // GET /categoria → listar todas Categorias
-    @GetMapping
+    @GetMapping(value = "", produces = "application/json")
     public List<Categoria> listarCategorias(@RequestParam(required = false) String nome) {
         if (nome != null && !nome.isBlank()) {
             return categoriaService.buscarPorNome(nome);
@@ -30,7 +30,7 @@ public class CategoriaController {
     }
 
     // GET /categoria/{idcategoria}/produto?nome= &valorMinimo= &valorMaximo= → listar produtos por nome e valor
-    @GetMapping("/{idcategoria}/produto")
+    @GetMapping(value = "/{idcategoria}/produto", produces = "application/json")
     public List<Produto> listarProdutosFiltrados(
             @PathVariable Long idcategoria,
             @RequestParam(required = false) String nome,

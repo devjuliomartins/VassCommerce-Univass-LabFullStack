@@ -1,37 +1,27 @@
 package br.com.juliomartins.VassCommerce.model;
 
-import br.com.juliomartins.VassCommerce.model.endereco.Endereco;
-import br.com.juliomartins.VassCommerce.model.formasdepagamento.FormasDePagamento;
-import br.com.juliomartins.VassCommerce.model.pedido.Pedido;
+reimport java.util.Date;
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-
-public class Cliente extends Usuario {
-    private String fotoUrl;
-    private LocalDate dataNascimento;
+public class Cliente {
+    private Long id;
     private String cpf;
-    private List<FormasDePagamento> formasDePagamento;
-    private Endereco endereco;
-    private Pedido pedido;
+    private String fotoUrl;
+    private Date dataNascimento;
 
-    public Cliente(long id, String nomeCompleto, String email, String senha, Date dataCadastro,
-                   Date dataUltimaAtualizacao, String fotoUrl, LocalDate dataNascimento, String cpf,
-                   List<FormasDePagamento> formasDePagamentos, Endereco endereco, Pedido pedido) {
-        super(id, nomeCompleto, email, senha, dataCadastro, dataUltimaAtualizacao, fotoUrl);
-        this.dataNascimento = dataNascimento;
+    public Cliente() {}
+
+    public Cliente(Long id, String cpf, String fotoUrl, Date dataNascimento) {
+        this.id = id;
         this.cpf = cpf;
-        this.formasDePagamento = formasDePagamentos;
-        this.endereco = endereco;
-        this.pedido = pedido;
+        this.fotoUrl = fotoUrl;
+        this.dataNascimento = dataNascimento;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
+    public Long getId() {
+        return id;
     }
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCpf() {
@@ -41,15 +31,17 @@ public class Cliente extends Usuario {
         this.cpf = cpf;
     }
 
-    public List<FormasDePagamento> getFormasDePagamento() {
-        return formasDePagamento;
+    public String getFotoUrl() {
+        return fotoUrl;
+    }
+    public void setFotoUrl(String fotoUrl) {
+        this.fotoUrl = fotoUrl;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public Date getDataNascimento() {
+        return this.dataNascimento;
     }
-
-    public Pedido getPedido() {
-        return pedido;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 }

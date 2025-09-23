@@ -20,7 +20,7 @@ public class TipoCartaoController {
 
 
 //  GET /tipo-cartao → listar todos os Tipos de Cartões
-    @GetMapping
+    @GetMapping(value = "", produces = "application/json")
     public List<TipoCartao> listarTipoCartao() {
         return tipoCartaoService.listarTodos();
     }

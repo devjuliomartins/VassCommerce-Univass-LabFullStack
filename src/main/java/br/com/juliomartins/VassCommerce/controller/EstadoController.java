@@ -22,13 +22,13 @@ public class EstadoController {
 
 
     //  GET /estado → Listar todos os Estados
-    @GetMapping
+    @GetMapping(value = "", produces = "application/json")
     public List<Estado> listarEstados() {
         return estadoService.listarEstados();
     }
 
     //  GET /estado/{idEstado}/cidade → Listar todas as Cidades de umEstados
-    @GetMapping("/{idEstado}/cidade")
+    @GetMapping(value = "/{idEstado}/cidade", produces = "application/json")
     public List<Cidade> listarCidadesPorEstado(@PathVariable Long idEstado) {
         return estadoService.listarCidadesPorEstado(idEstado);
     }

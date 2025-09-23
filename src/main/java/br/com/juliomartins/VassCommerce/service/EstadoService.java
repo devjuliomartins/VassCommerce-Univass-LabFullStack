@@ -1,15 +1,16 @@
 package br.com.juliomartins.VassCommerce.service;
 
+import br.com.juliomartins.VassCommerce.model.endereco.Cidade;
 import br.com.juliomartins.VassCommerce.model.endereco.Estado;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class EstadoService {
 
     private final List<Estado> estados = new ArrayList<>();
+    private final Map<Long, List<Cidade>> cidadesPorEstado = new HashMap<>();
 
     public EstadoService(ClienteService clienteService) {
         estados.add(new Estado(1L, "AC", "Acre"));
@@ -39,6 +40,20 @@ public class EstadoService {
         estados.add(new Estado(25L, "SP", "São Paulo"));
         estados.add(new Estado(26L, "SE", "Sergipe"));
         estados.add(new Estado(27L, "TO", "Tocantins"));
+
+        cidadesPorEstado.put(19L, List.of(
+                new Cidade(1L, "Rio de Janeiro"),
+                new Cidade(2L, "Niterói"),
+                new Cidade(3L, "Vassouras"),
+                new Cidade(4L, "Valença"),
+                new Cidade(5L, "Barra do Piraí")
+        ));
+
+        cidadesPorEstado.put(25L, List.of(
+                new Cidade(6L, "São Paulo"),
+                new Cidade(7L, "Campinas"),
+                new Cidade(8L, "Santos")
+        ));
     }
 
     // Listar todos Estados
@@ -46,4 +61,8 @@ public class EstadoService {
         return estados;
     }
 
+    // Listar as Cidades do Estado
+    public List<Cidade> listarCidadesPorEstado(Long idEstado) {
+        return cidadesPorEstado.getOrDefault(idEstado, Collections.emptyList());
+    }
 }

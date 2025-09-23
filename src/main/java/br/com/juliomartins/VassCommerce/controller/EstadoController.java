@@ -1,8 +1,10 @@
 package br.com.juliomartins.VassCommerce.controller;
 
+import br.com.juliomartins.VassCommerce.model.endereco.Cidade;
 import br.com.juliomartins.VassCommerce.model.endereco.Estado;
 import br.com.juliomartins.VassCommerce.service.EstadoService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +25,11 @@ public class EstadoController {
     @GetMapping
     public List<Estado> listarEstados() {
         return estadoService.listarEstados();
+    }
+
+    //  GET /estado/{idEstado}/cidade → Listar todas as Cidades de umEstados
+    @GetMapping("/{idEstado}/cidade")
+    public List<Cidade> listarCidadesPorEstado(@PathVariable Long idEstado) {
+        return estadoService.listarCidadesPorEstado(idEstado);
     }
 }

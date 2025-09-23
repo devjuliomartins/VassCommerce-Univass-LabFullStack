@@ -8,7 +8,6 @@ public class Cidade {
     public Cidade(long id, String nome, Estado estado) {
         this.id = id;
         this.nome = nome;
-        this.estado = estado;
     }
 
     public String getNome() {

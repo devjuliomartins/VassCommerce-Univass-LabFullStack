@@ -1,6 +1,6 @@
 package br.com.juliomartins.VassCommerce.model;
 
-reimport java.util.Date;
+import java.util.Date;
 
 public class Cliente {
     private Long id;

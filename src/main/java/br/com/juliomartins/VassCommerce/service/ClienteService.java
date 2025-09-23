@@ -41,4 +41,12 @@ public class ClienteService {
                 })
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado com id: " + id));
     }
+
+    // Deletar Cliente
+    public void delete(Long id) {
+        boolean removido = cliente.removeIf(c -> c.getId().equals(id));
+        if (!removido) {
+            throw new RuntimeException("Cliente não encontrado com id: " + id);
+        }
+    }
 }

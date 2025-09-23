@@ -25,4 +25,10 @@ public class ClienteController {
     public Cliente atualizarDadosClienteup(@PathVariable Long id, @RequestBody Cliente cliente) {
         return clienteService.update(id, cliente);
     }
+
+    //  DELETE /cliente/{id} → Excluir dados do Cliente
+    @DeleteMapping("/{id}")
+    public void deletarCliente(@PathVariable Long id) {
+        clienteService.delete(id);
+    }
 }

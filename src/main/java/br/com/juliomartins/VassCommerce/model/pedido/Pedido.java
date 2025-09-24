@@ -1,21 +1,36 @@
 package br.com.juliomartins.VassCommerce.model.pedido;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Pedido {
-    private long id;
+    private Long id;
+    private Long idCliente;
     private Date dataCadastro;
     private BigDecimal valorTotal;
     private PedidoStatus pedidoStatus;
-    private ItemPedido itemPedido;
+    private List<ItemPedido> itens = new ArrayList<>();
 
-    public Pedido(long id, Date dataCadastro, BigDecimal valorTotal, PedidoStatus pedidoStatus, ItemPedido itemPedido) {
+    public Pedido(long id, Date dataCadastro, PedidoStatus pedidoStatus) {
         this.id = id;
         this.dataCadastro = dataCadastro;
-        this.valorTotal = valorTotal;
         this.pedidoStatus = pedidoStatus;
-        this.itemPedido = itemPedido;
+        this.valorTotal = BigDecimal.ZERO;
+    }
+
+    // Metodo para adicionar item
+    public void adicionarItem(ItemPedido item) {
+        itens.add(item);
+        recalcularValorTotal();
+    }
+
+    // Metodo para recalcular o total
+    public void recalcularValorTotal() {
+        this.valorTotal = itens.stream()
+                .map(ItemPedido::getSubtotal)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public long getId() {
@@ -23,6 +38,13 @@ public class Pedido {
     }
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 
     public Date getDataCadastro() {
@@ -46,10 +68,11 @@ public class Pedido {
         this.pedidoStatus = pedidoStatus;
     }
 
-    public ItemPedido getItemPedido() {
-        return itemPedido;
+    public List<ItemPedido> getItens() {
+        return itens;
     }
-    public void setItemPedido(ItemPedido itemPedido) {
-        this.itemPedido = itemPedido;
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
+        recalcularValorTotal();
     }
 }

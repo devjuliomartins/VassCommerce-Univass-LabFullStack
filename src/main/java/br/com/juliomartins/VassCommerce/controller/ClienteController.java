@@ -1,7 +1,9 @@
 package br.com.juliomartins.VassCommerce.controller;
 
 import br.com.juliomartins.VassCommerce.model.Cliente;
+import br.com.juliomartins.VassCommerce.model.formasdepagamento.Cartao;
 import br.com.juliomartins.VassCommerce.model.pedido.Pedido;
+import br.com.juliomartins.VassCommerce.service.CartaoService;
 import br.com.juliomartins.VassCommerce.service.ClienteService;
 import br.com.juliomartins.VassCommerce.service.PedidoService;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +17,12 @@ public class ClienteController {
 
     private final ClienteService clienteService;
     private final PedidoService pedidoService;
+    private final CartaoService cartaoService;
 
-    public ClienteController(ClienteService clienteService, PedidoService pedidoService) {
+    public ClienteController(ClienteService clienteService, PedidoService pedidoService, CartaoService cartaoService) {
         this.clienteService = clienteService;
         this.pedidoService = pedidoService;
+        this.cartaoService = cartaoService;
     }
 
 
@@ -57,5 +61,11 @@ public class ClienteController {
             }
         }
         return pedidoService.listarPedidosPorCliente(idCliente);
+    }
+
+    //  GET /cliente/{idCliente}/formas-de-pagamento → Listar formas-de-pagamento do cliente
+    @GetMapping(value = "/{idCliente}/formas-de-pagamento", produces = "application/json")
+    public List<Cartao> listarFormasDePagamento(@PathVariable Long idCliente) {
+        return cartaoService.listarPorCliente(idCliente);
     }
 }

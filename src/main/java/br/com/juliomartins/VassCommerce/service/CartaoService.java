@@ -48,5 +48,11 @@ public class CartaoService {
         return cartao;
     }
 
-
+    //  Excluir Cartão do Cliente
+    public void excluirCartao(Long idCliente, Long idCartao) {
+        cartoes.stream()
+                .filter(c -> c.getId().equals(idCartao) && c.getIdCliente().equals(idCliente))
+                .findFirst()
+                .ifPresent(c -> c.setExcluido(true));
+    }
 }

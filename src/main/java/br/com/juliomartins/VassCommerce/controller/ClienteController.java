@@ -85,4 +85,13 @@ public class ClienteController {
         return cartaoService.atualizarCartao(idCliente, idFormaPagamento, cartao);
     }
 
+    //  DELETE /cliente/{idCliente}/formas-de-pagamento → Excluir formas-de-pagamento
+    @DeleteMapping(value = "/{idCliente}/formas-de-pagamento/{idFormaPagamento}", produces = "application/json"
+    )
+    public void deletarFormaDePagamento(
+            @PathVariable Long idCliente,
+            @PathVariable Long idFormaPagamento
+    ) {
+        cartaoService.excluirCartao(idCliente, idFormaPagamento);
+    }
 }

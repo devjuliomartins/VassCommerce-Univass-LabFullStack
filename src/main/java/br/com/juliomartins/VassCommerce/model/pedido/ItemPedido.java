@@ -5,22 +5,27 @@ import br.com.juliomartins.VassCommerce.model.Produto;
 import java.math.BigDecimal;
 
 public class ItemPedido {
-    private long id;
+    private Long id;
     private int quantidade;
     private BigDecimal valorUnitario;
     private Produto produto;
 
-    public ItemPedido(long id, int quantidade, BigDecimal valorUnitario, Produto produto) {
+    public ItemPedido(Long id, int quantidade, BigDecimal valorUnitario, Produto produto) {
         this.id = id;
         this.quantidade = quantidade;
         this.valorUnitario = valorUnitario;
         this.produto = produto;
     }
 
-    public long getId() {
+    public BigDecimal getSubtotal() {
+        return valorUnitario.multiply(BigDecimal.valueOf(quantidade));
+    }
+
+
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

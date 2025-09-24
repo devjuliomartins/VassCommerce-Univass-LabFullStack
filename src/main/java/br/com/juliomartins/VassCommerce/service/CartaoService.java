@@ -35,4 +35,18 @@ public class CartaoService {
         return cartao;
     }
 
+    //  Atualizar dados do Cartão do Cliente
+    public Cartao atualizarCartao(Long idCliente, Long idCartao, Cartao atualizado) {
+        Cartao cartao = cartoes.stream()
+                .filter(c -> c.getId().equals(idCartao) && c.getIdCliente().equals(idCliente))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Cartão não encontrado"));
+
+        cartao.setTipoCartao(atualizado.getTipoCartao());
+        cartao.setDataCriacao(atualizado.getDataCriacao());
+        cartao.setExcluido(atualizado.getExcluido());
+        return cartao;
+    }
+
+
 }

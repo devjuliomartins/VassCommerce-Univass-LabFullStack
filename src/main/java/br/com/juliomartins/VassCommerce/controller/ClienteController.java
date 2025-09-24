@@ -75,4 +75,14 @@ public class ClienteController {
         return cartaoService.adicionarCartao(idCliente, cartao);
     }
 
+    //  PUT /cliente/{idCliente}/formas-de-pagamento → Atualizar formas-de-pagamento do cliente
+    @PutMapping(value = "/{idCliente}/formas-de-pagamento/{idFormaPagamento}", consumes = "application/json", produces = "application/json")
+    public Cartao atualizarFormaDePagamento(
+            @PathVariable Long idCliente,
+            @PathVariable Long idFormaPagamento,
+            @RequestBody Cartao cartao
+    ) {
+        return cartaoService.atualizarCartao(idCliente, idFormaPagamento, cartao);
+    }
+
 }

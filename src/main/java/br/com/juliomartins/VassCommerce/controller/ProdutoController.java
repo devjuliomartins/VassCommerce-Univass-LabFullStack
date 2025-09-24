@@ -1,7 +1,13 @@
 package br.com.juliomartins.VassCommerce.controller;
 
+import br.com.juliomartins.VassCommerce.dtos.ProdutoCreateRequest;
+import br.com.juliomartins.VassCommerce.dtos.ProdutoResponse;
+import br.com.juliomartins.VassCommerce.mapper.ProdutoMapper;
 import br.com.juliomartins.VassCommerce.model.Produto;
 import br.com.juliomartins.VassCommerce.service.ProdutoService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,14 +34,25 @@ public class ProdutoController {
 
     // POST /produto → criar novo produto
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public Produto criarProduto(@RequestBody Produto produto) {
-        return produtoService.create(produto);
+    public ResponseEntity<ProdutoResponse> criarProduto(@Valid @RequestBody ProdutoCreateRequest dto) {
+        Produto produto = ProdutoMapper.toEntity(dto, produtoService.gerarNovoId());
+
+        Produto produtoSalvo = produtoService.create(produto);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(ProdutoMapper.toResponse(produtoSalvo));
     }
 
     // GET /produto/{idProduto} → buscar Produto pro ID
     @GetMapping(value = "/{id}", produces = "application/json")
-    public Produto buscarProdutoId(@PathVariable long id) {
-        return produtoService.buscarProdutoId(id);
+    public ResponseEntity<ProdutoResponse> buscarProdutoId(@PathVariable long id) {
+        Produto produto = produtoService.buscarProdutoId(id);
+
+        if (produto == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        ProdutoResponse response = ProdutoMapper.toResponse(produto);
+        return ResponseEntity.ok(response);
     }
 
     // PUT /produto/{idProduto} → atualizar dados do Produto

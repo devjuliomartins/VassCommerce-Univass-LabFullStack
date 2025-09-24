@@ -34,6 +34,10 @@ public class ProdutoService {
         ));
     }
 
+    public long gerarNovoId() {
+        return sequence.getAndIncrement();
+    }
+
     // Buscar Produto pelo ID
     public Produto buscarProdutoId(long id) {
         return produtos.stream()

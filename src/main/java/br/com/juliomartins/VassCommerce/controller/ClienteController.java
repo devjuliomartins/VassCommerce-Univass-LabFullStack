@@ -68,4 +68,11 @@ public class ClienteController {
     public List<Cartao> listarFormasDePagamento(@PathVariable Long idCliente) {
         return cartaoService.listarPorCliente(idCliente);
     }
+
+    //  POST /cliente/{idCliente}/formas-de-pagamento → Criar nova formas-de-pagamento
+    @PostMapping(value = "/{idCliente}/formas-de-pagamento", consumes = "application/json", produces = "application/json")
+    public Cartao adicionarFormaDePagamento(@PathVariable Long idCliente, @RequestBody Cartao cartao) {
+        return cartaoService.adicionarCartao(idCliente, cartao);
+    }
+
 }

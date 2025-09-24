@@ -18,11 +18,21 @@ public class CartaoService {
         cartoes.add(new Cartao(3L, 1L, 2, new Date(), false));
     }
 
+    // Listar formas de pagamento por Id Cliente
     public List<Cartao> listarPorCliente(Long idCliente) {
         return cartoes.stream()
                 .filter(c -> Objects.equals(c.getIdCliente(), idCliente))
                 .filter(c -> Boolean.FALSE.equals(c.getExcluido()))
                 .toList();
+    }
+
+    //  Adicionar novo Cartão CLiente
+    public Cartao adicionarCartao(Long idCliente, Cartao cartao) {
+        long novoId = cartoes.stream().mapToLong(Cartao::getId).max().orElse(0L) + 1;
+        cartao.setId(novoId);
+        cartao.setIdCliente(idCliente);
+        cartoes.add(cartao);
+        return cartao;
     }
 
 }

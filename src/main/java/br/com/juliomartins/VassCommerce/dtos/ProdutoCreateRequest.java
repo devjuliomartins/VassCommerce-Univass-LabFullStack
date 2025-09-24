@@ -1,12 +1,21 @@
 package br.com.juliomartins.VassCommerce.dtos;
 
-import java.math.BigDecimal;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-public class ProdutoDto {
+public class ProdutoCreateRequest {
+
+    @NotBlank(message = "nome é obrigatório")
     private String nome;
+
+    @NotBlank(message = "descricao é obrigatório")
     private String descricao;
     private String fotoUrl;
-    private BigDecimal valorUnitario;
+
+    @NotNull(message = "valorUnitario é obrigatório")
+    private Float valorUnitario;
+
+    @NotNull(message = "idCategoria é obrigatório")
     private Long idCategoria;
 
     public String getNome() {
@@ -33,11 +42,11 @@ public class ProdutoDto {
         this.fotoUrl = fotoUrl;
     }
 
-    public BigDecimal getValorUnitario() {
+    public Float getValorUnitario() {
         return valorUnitario;
     }
 
-    public void setValorUnitario(BigDecimal valorUnitario) {
+    public void setValorUnitario(Float valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 

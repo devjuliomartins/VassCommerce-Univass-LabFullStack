@@ -8,6 +8,7 @@ import br.com.juliomartins.VassCommerce.service.ProdutoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class ProdutoController {
 
     // GET /produto?nome=<nomeProduto>&valorMinimo=<valor>&valorMaximo=<valor> → listar Produtos por nome e valor
     @GetMapping(produces = "application/json")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public List<Produto> listarTodosProdutosFiltrados(
             @RequestParam(required = false) String nome,
             @RequestParam(required = false) Float valorMinimo,
@@ -34,6 +36,7 @@ public class ProdutoController {
 
     // POST /produto → criar novo produto
     @PostMapping(consumes = "application/json", produces = "application/json")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<ProdutoResponse> criarProduto(@Valid @RequestBody ProdutoCreateRequest dto) {
         Produto produto = ProdutoMapper.toEntity(dto, produtoService.gerarNovoId());
 
@@ -44,6 +47,7 @@ public class ProdutoController {
 
     // GET /produto/{idProduto} → buscar Produto pro ID
     @GetMapping(value = "/{id}", produces = "application/json")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<ProdutoResponse> buscarProdutoId(@PathVariable long id) {
         Produto produto = produtoService.buscarProdutoId(id);
 
@@ -57,12 +61,14 @@ public class ProdutoController {
 
     // PUT /produto/{idProduto} → atualizar dados do Produto
     @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public Produto atualizarProduto(@PathVariable long id, @RequestBody Produto produto) {
         return produtoService.update(id, produto);
     }
 
     // DELETE /produto/{idProduto} →  excluir cadastro do Produto
     @DeleteMapping(value = "/{id}", produces = "application/json")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public void deletarProduto(@PathVariable long id) {
         produtoService.delete(id);
     }
